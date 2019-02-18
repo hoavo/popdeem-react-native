@@ -30,6 +30,19 @@ RCT_EXPORT_METHOD(enableSocialLoginWithNumberOfPrompts:(NSInteger )numberOfPromp
     [PopdeemSDK enableSocialLoginWithNumberOfPrompts:numberOfPrompts];
 }
 
+RCT_EXPORT_METHOD(pushPopdeemHome)
+{
+    [PopdeemSDK presentRewardFlow];
+}
 
+RCT_EXPORT_METHOD(deliverThirdPartyToken:(NSString *) userToken)
+{
+    [PopdeemSDK setThirdPartyUserToken:userToken];
+}
+
+RCT_EXPORT_METHOD(logMoment:(NSString *) momentString)
+{
+    [PopdeemSDK logMoment:momentString];
+}
 @end
   
