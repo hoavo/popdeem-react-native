@@ -34,19 +34,28 @@
       compile project(':react-native-popdeem')
   	```
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
+## Social Login
+To launch the social login popover from javascript, use the following:
+`popdeem.enableSocialLogin(3, function() {}, function() {});`
+The first parameter is the _numberOfPrompts_ argument. The popover is dismissible by the user - this argument denotes the maximum number of times a user can see this popover.
 
-1. In Visual Studio add the `RNPopdeem.sln` in `node_modules/react-native-popdeem/windows/RNPopdeem.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Popdeem.RNPopdeem;` to the usings at the top of the file
-  - Add `new RNPopdeemPackage()` to the `List<IReactPackage>` returned by the `Packages` method
 
+## Popdeem Home
+To show the Popdeem Home flow from javascript, use the following:
+`popdeem.pushPopdeemHome(function() {}, function() {});`. Popdeem Home encapsulates all of Popdeem’s functionality.
+
+
+## Deliver Third Party Token
+We may need you to deliver a user token. If so, you can do this by using this method:
+`popdeem.deliverThirdPartyToken(“ThirdPartyToken", function() {}, function() {});`.
 
 ## Usage
 ```javascript
-import RNPopdeem from 'react-native-popdeem';
+import {NativeModules} from 'react-native';
+const RNPopdeem = NativeModules.RNPopdeem;
 
+RNPopdeem.init('api_key')
+RNPopdeem.enableSocialLoginWithNumberOfPrompts(3);
 // TODO: What to do with the module?
 RNPopdeem;
 ```
