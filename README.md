@@ -54,9 +54,9 @@ We may need you to deliver a user token. If so, you can do this by using this me
 import {NativeModules} from 'react-native';
 const RNPopdeem = NativeModules.RNPopdeem;
 
+// TODO: What to do with the module?
 RNPopdeem.init('api_key')
 RNPopdeem.enableSocialLoginWithNumberOfPrompts(3);
-// TODO: What to do with the module?
-RNPopdeem;
+
 ```
   
