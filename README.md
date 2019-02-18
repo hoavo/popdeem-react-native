@@ -15,9 +15,11 @@
 #### iOS
 We use cocoapods to manage this library
 
-1. pod init
-2. pod 'RNPopdeem', :git => 'https://github.com/hoavo/popdeem-react-native.git'
-3. pod install
+1. yarn add https://github.com/hoavo/popdeem-react-native
+2. move to ios folder: cd ios
+3. pod init
+4. pod 'RNPopdeem', :path => '../node_modules/react-native-popdeem'  
+5. pod install
 
 #### Android
 
