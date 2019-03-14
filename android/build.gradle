@@ -33,7 +33,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-native:+'
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    implementation 'com.popdeem.sdk:sdk:1.3.24'
+    implementation 'com.popdeem.sdk:sdk:1.3.26'
 }
