@@ -1,10 +1,10 @@
-
-import com.popdeem.sdk.core.PopdeemSDK;
+package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.popdeem.sdk.core.PopdeemSDK;
 import com.popdeem.sdk.core.utils.PDLog;
 import com.popdeem.sdk.core.api.PDAPICallback;
 import com.popdeem.sdk.core.api.PDAPIClient;
@@ -24,24 +24,23 @@ public class RNPopdeemModule extends ReactContextBaseJavaModule {
     return "RNPopdeem";
   }
   @ReactMethod
-  private void enableSocialLogin(int numberOfPrompts, CallbackContext callbackContext) {
-    PopdeemSDK.enableSocialMultiLogin(this.cordova.getActivity().getClass(), numberOfPrompts);
-    PopdeemSDK.pushCordovaLogin(this.cordova.getActivity(), numberOfPrompts);
+  public void enableSocialLogin(int numberOfPrompts) {
+    PopdeemSDK.enableSocialMultiLogin(getCurrentActivity().getClass(), numberOfPrompts);
   }
 
-  private void pushSocialLogin(int numberOfPrompts, CallbackContext callbackContext) {
-      PopdeemSDK.enableSocialMultiLogin(this.cordova.getActivity().getClass(), numberOfPrompts);
+  public void pushSocialLogin(int numberOfPrompts) {
+    PopdeemSDK.enableSocialMultiLogin(getCurrentActivity().getClass(), numberOfPrompts);
   }
 
-  private void pushPopdeemHome(CallbackContext callbackContext) {
-    PopdeemSDK.showHomeFlow(this.cordova.getActivity());
+  public void pushPopdeemHome() {
+    PopdeemSDK.showHomeFlow(getCurrentActivity());
   }
 
-  private void deliverThirdPartyToken(String userToken, CallbackContext callbackContext) {
+  public void deliverThirdPartyToken(String userToken) {
     PopdeemSDK.setThirdPartyToken(userToken);
   }
 
-  private void logMoment(String momentString, CallbackContext callbackContext) {
+  public void logMoment(String momentString) {
     PopdeemSDK.logMoment(momentString, new PDAPICallback<PDBasicResponse>() {
           @Override
           public void success(PDBasicResponse response) {
